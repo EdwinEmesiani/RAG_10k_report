@@ -1,80 +1,56 @@
-# Project Title: RAG-10K Financial Reports Q&A System
+## 📄 RAG_10K_Report — Financial Intelligence Assistant
 
-##  Overview
-This project implements a **Retrieval-Augmented Generation (RAG)** system that enables financial analysts to ask natural-language questions and receive **grounded, citation-backed answers** directly from company **10-K filings**.
+## 🔍 Overview
 
-The system solves the problem of manually searching long financial documents by combining:
-- Vector search over embedded 10-K reports
-- Large Language Models (LLMs) for answer generation
-- Source attribution (page-level citations)
+RAG_10K_Report is a Retrieval-Augmented Generation (RAG) system designed to answer financial questions directly from SEC 10-K filings with page-level citations.
 
-The final solution is deployed as an **interactive Gradio application** on **Hugging Face Spaces**.
+The system combines semantic search, vector databases, and large language models to deliver grounded, traceable responses.
 
 ---
 
-## 🎯 Objectives
-- Build a **vector database** from multiple companies’ 10-K reports  
-- Enable **semantic retrieval** of relevant document chunks  
-- Generate **fact-grounded answers** using an LLM  
-- Ensure responses are **traceable to original 10-K sources**  
-- Deploy a **production-ready RAG application** for analyst use  
+## 🏗 Architecture
 
----
-
-## 🧠 How the RAG System Works
-1. **Ingestion:** 10-K PDFs are loaded, chunked, and embedded  
-2. **Vector Storage:** Embeddings are persisted in a Chroma vector database  
-3. **Retrieval:** Relevant chunks are retrieved based on the user query  
-4. **Augmentation:** Retrieved context is injected into the LLM prompt  
-5. **Generation:** The LLM produces an answer **only from retrieved context**  
-6. **Citations:** Page numbers and document sources are included  
+1. 📄 10-K ingestion  
+2. ✂️ Text chunking  
+3. 🔢 Embedding using `thenlper/gte-large`  
+4. 🗄 Chroma vector database persistence  
+5. 🔎 Metadata-filtered semantic retrieval  
+6. 🤖 GPT-powered answer generation  
+7. 📚 Page citation formatting  
+8. 🌐 Deployment via Gradio on Hugging Face Spaces  
 
 ---
 
 ## 🧰 Tech Stack
-| Category | Tools Used |
-|-------|-----------|
-| Language | Python 🐍 |
-| RAG Framework | LangChain |
-| Vector Database | ChromaDB |
-| Embeddings | HuggingFace (gte-large) |
-| LLM | OpenAI / AnyScale |
-| Deployment | Gradio, Hugging Face Spaces |
-| Version Control | Git & GitHub |
+
+- Python
+- LangChain
+- ChromaDB
+- Sentence Transformers
+- OpenAI API
+- Gradio
+- Hugging Face Spaces
+- Git & Git LFS
 
 ---
 
-## 📊 Supported Companies
-- Google  
-- Microsoft  
-- Amazon (AWS)  
-- Meta  
-- IBM  
+## 🔐 Security
 
-Each company’s 10-K filing is indexed separately and queried dynamically.
+- API keys handled via environment variables
+- No secrets stored in repository
+- HF Space secrets configured securely
 
 ---
 
-## 🔍 Example Questions
-- *Has the company made any significant acquisitions in the AI space?*  
-- *How much capital has been allocated toward AI research and development?*  
-- *What ethical AI initiatives has the company implemented?*  
-- *How does the company differentiate itself in the AI market?*  
+## 🚀 Deployment
 
----
+Deployed on Hugging Face Spaces using Gradio.
 
-## 🖥️ Gradio Interface Features
-- Company selector (radio button)  
-- Natural-language question input  
-- Adjustable retrieval depth (Top-K)  
-- Citation-backed answers  
-- Deployed as a **public Hugging Face Space**
+To run locally:
 
----
-
-## ⚙️ How to Run the Project
-
-### Clone the repository
 ```bash
-git clone https://github.com/< EdwinEmesiani >/< RAG_10k_report >.git
-cd < RAG_10k_report >
+git clone https://github.com/yourusername/RAG_10K_Report.git
+cd RAG_10K_Report
+pip install -r requirements.txt
+export OPENAI_API_KEY=your_key_here
+python app.py
