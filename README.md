@@ -1,3 +1,5 @@
+> Part of my **deployable AI systems portfolio**. See my [GitHub profile](https://github.com/EdwinEmesiani) for related projects like **HealthyLife Insurance Charge Prediction** and **Technoecom E-Commerce EDA**.
+
 ## 📄 RAG_10K_Report — Financial Intelligence Assistant
 
 ## 🔍 Overview
